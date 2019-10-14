@@ -5,7 +5,7 @@ Prerequirements before installations:
 
 ---- PREPARING THE HOSTS -----
 All hosts file must be like below (hostnames need to be same 'cat /etc/hostname' output):
-192.168.1.101 okd-loadbalancer ahmetmyuksel.local
+```192.168.1.101 okd-loadbalancer ahmetmyuksel.local
 
 192.168.1.102 okd-master-1
 192.168.1.103 okd-master-2
@@ -17,16 +17,16 @@ All hosts file must be like below (hostnames need to be same 'cat /etc/hostname'
 
 192.168.1.108 okd-node-1
 192.168.1.109 okd-node-2
-192.168.1.110 okd-node-3
+192.168.1.110 okd-node-3```
 
 ----- NETWORK INTERFACES -----
 Add below rows to active network interfaces.
-NM_CONTROLLED="yes"
-PEERDNS="yes"
+```NM_CONTROLLED="yes"
+PEERDNS="yes"```
 
 
 ----- EXAMPLE KEEPALIVED CONF (for loadbalancer) -----
-vrrp_instance VRRP {
+```vrrp_instance VRRP {
     interface ens192
     virtual_router_id 110
     state MASTER
@@ -35,7 +35,7 @@ vrrp_instance VRRP {
     virtual_ipaddress {
         192.168.1.100 dev ens192
     }
-}
+}```
 
 Then start the installations:
 ansible-playbook -i hosts.ini playbooks/prerequisites.yml
