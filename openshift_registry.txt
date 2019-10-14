@@ -1,0 +1,7 @@
+If you need to use Openshift registry service, you must connect a cluster host get the certificate. and save it as below:
+
+vim /etc/docker/certs.d/docker-registry-default.apps.local/node-client-ca.crt
+
+-----BEGIN CERTIFICATE-----
+#registry-certificate-is-here
+-----END CERTIFICATE-----

@@ -1,0 +1,42 @@
+oauthConfig:
+  assetPublicURL: https://ahmetmyuksel.local:8443/console/
+  grantConfig:
+    method: auto
+  identityProviders:
+  - challenge: true
+    login: true
+    mappingMethod: claim
+    name: LDAP Authentication
+    provider:
+      apiVersion: v1
+      attributes:
+        email:
+        - mail
+        id:
+        - dn
+        name:
+        - cn
+        preferredUsername:
+        - uid
+      bindDN: cn="Directory Manager"
+      bindPassword: p455w0rd-h3r3
+      insecure: true
+      kind: LDAPPasswordIdentityProvider
+      url: ldap://ipa.ahmetmyuksel.com:389/cn=users,cn=accounts,dc=ahmetm,dc=com
+#  identityProviders:
+#  - challenge: true
+#    login: true
+#    mappingMethod: claim
+#    name: htpasswd_auth
+#    provider:
+#      apiVersion: v1
+#      file: /etc/origin/master/htpasswd
+#      kind: HTPasswdPasswordIdentityProvider
+
+
+###### LDAP AUTHENTICATION #####
+After add ldap configs to '/etc/origin/master/master-config.yaml' , run below commands
+
+docker rm -f $(docker ps -a|grep master |awk '{print $1}')
+master-restart api
+systemctl restart origin-node
