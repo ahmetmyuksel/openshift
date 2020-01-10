@@ -44,5 +44,5 @@ vrrp_instance VRRP {
 ```
 
 ## Then start the installations:
-ansible-playbook -i hosts.ini playbooks/prerequisites.yml
+ansible-playbook -i hosts.ini playbooks/prerequisites.yml  
 ansible-playbook -i hosts.ini playbooks/deploy_cluster.yml
