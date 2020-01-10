@@ -1,9 +1,9 @@
 Original OpenShift Ansible repository and Centos 7.6.1810 referenced. And used version 3.11. So before you start the use, please be sure you make 'git checkout release-3.11'<br/>
 https://github.com/openshift/openshift-ansible
 
-## Prerequirements before installations:
+## PREREQUIREMENTS:
 
-## PREPARING THE HOSTS
+## Preparing the Hosts
 All hosts file must be like below (hostnames need to be same 'cat /etc/hostname' output): <br/>
 ```
 192.168.1.101 okd-loadbalancer ahmetmyuksel.local
@@ -21,7 +21,7 @@ All hosts file must be like below (hostnames need to be same 'cat /etc/hostname'
 192.168.1.110 okd-node-3
 ```
 
-## NETWORK INTERFACES
+## Network Interfaces
 Add below rows to active network interfaces.
 ```
 NM_CONTROLLED="yes"
@@ -29,7 +29,7 @@ PEERDNS="yes"
 ```
 <br/>
 
-## EXAMPLE KEEPALIVED CONF (for loadbalancer)
+## Example of Keepalived Configurations (for loadbalancer)
 ```
 vrrp_instance VRRP {
     interface ens192
