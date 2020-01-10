@@ -1,13 +1,19 @@
+git clone https://github.com/openshift/openshift-ansible.git
+cd openshift-ansible
+git checkout/$version
+
 ---------------monitoring--------------------------
 ansible-playbook -i hosts playbooks/openshift-monitoring/config.yml -e openshift_cluster_monitoring_operator_install=true -e openshift_cluster_monitoring_operator_prometheus_storage_enabled=false -e openshift_master_overwrite_named_certificates=true -e openshift_additional_ca="/etc/pki/tls/cert.pem"
 
 
 ---------------logging-----------------------------
-ansible-playbook -i hosts playbooks/openshift-logging/config.yml -e openshift_logging_install_logging=true -e openshift_logging_es_cpu_limit=500m  -e openshift_logging_es_memory_limit=1024Mi (almayabilir memory limiti, manuel ui dan girmek gerekebilir)
+ansible-playbook -i hosts playbooks/openshift-logging/config.yml -e
+openshift_logging_install_logging=true -e openshift_logging_es_cpu_limit=500m
+-e openshift_logging_es_memory_limit=1024Mi (almayabilir memory limiti, manuel ui dan girmek gerekebilir bug(3.11))
 
 
 ---------------hawkular metrics---------------------
-ansible-playbook -i hosts playbooks/openshift-metrics/config.yml -e openshift_metrics_install_metrics=true -e openshift_metrics_hawkular_hostname=hawkular-metrics.apps.ahmetmyuksel.local
+ansible-playbook -i hosts playbooks/openshift-metrics/config.yml -e openshift_metrics_install_metrics=true -e openshift_metrics_hawkular_hostname=hawkular-metrics.apps.ahmetyuksel.local
 
 
 ---------------autoscaling(metric-server)-----------

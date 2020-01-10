@@ -1,5 +1,5 @@
 oauthConfig:
-  assetPublicURL: https://ahmetmyuksel.local:8443/console/
+  assetPublicURL: https://ahmetyuksel.local:8443/console/
   grantConfig:
     method: auto
   identityProviders:
@@ -22,7 +22,7 @@ oauthConfig:
       bindPassword: p455w0rd-h3r3
       insecure: true
       kind: LDAPPasswordIdentityProvider
-      url: ldap://ipa.ahmetmyuksel.com:389/cn=users,cn=accounts,dc=ahmetm,dc=com
+      url: ldap://ipa.ahmetyuksel.com:389/cn=users,cn=accounts,dc=ahmet,dc=com
 #  identityProviders:
 #  - challenge: true
 #    login: true
